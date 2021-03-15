@@ -3,6 +3,14 @@
   package:
           name: "keepalived"
           state: present
+- name: Create nftwall opt Directory
+  file:
+    path: /opt/nftwall
+    state: directory
+- name: Install changestate script
+  template:
+    src: changestate.bash.j2
+    dest: /opt/nftwall/changestate.bash
 - name: Setup keepalived.conf
   template:
     src: keepalived.conf.j2
