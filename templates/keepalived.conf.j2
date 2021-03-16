@@ -13,7 +13,7 @@ global_defs {
 vrrp_sync_group NFTWALL {
   group {
 {% for instance in kad_vrrpinstances %}
-    {{ instance }}
+    {{ instance['name'] }}
 {% endfor %}
   }
   notify_master "/opt/nftwall/changestate.bash primary"
